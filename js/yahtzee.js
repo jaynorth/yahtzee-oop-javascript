@@ -39,12 +39,19 @@ function Dice(){
 }
 
 function Hand(dice1, dice2, dice3, dice4, dice5){
-
+	
+	this.dice1 = dice1;
+	this.dice2 = dice2;
+	this.dice3 = dice3;
+	this.dice4 = dice4;
+	this.dice5 = dice5;
+	
 	this.handNumber;//out of 3 throws per turn
 	this.totalGameTurn;//out of the 13 turn
 	this.handResult = [dice1, dice2, dice3, dice4, dice5];
 
 	this.displayHand = function(){
+		console.log(this.handResult);
 		return this.handResult;
 	}
 
@@ -55,6 +62,7 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 				sum +=1;
 			}
 		}
+		console.log(sum);
 		return sum;
 	}
 
@@ -102,36 +110,38 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 
 }
 
-
+// Creating 5 Dice object instances
 var dice1 = new Dice();
-console.log(dice1);
+var dice2 = new Dice();
+var dice3 = new Dice();
+var dice4 = new Dice();
+var dice5 = new Dice();
+
 dice1.roll();
-console.log(dice1);
-dice1.keep();
-//.roll();
-/*
-var dice2 = new Dice().roll();;
-var dice3 = new Dice().roll();;
-var dice4 = new Dice().roll();;
-var dice5 = new Dice().roll();;
-*/
-//dice1.roll();
-//dice1.this.fuck();
-/*
-console.log(dice1.roll());
-console.log(dice2.roll());
-console.log(dice3.roll());
-console.log(dice4.roll());
-console.log(dice5.roll());
+dice2.roll();
+dice3.roll();
+dice4.roll();
+dice5.roll();
 
-hand1 = new Hand(dice1, dice2, dice3, dice4, dice5);
+var value1 = dice1.getValue();
+console.log(value1);
+var value2 = dice2.getValue();
+console.log(value2);
+var value3 = dice3.getValue();
+console.log(value3);
+var value4 = dice4.getValue();
+console.log(value4);
+var value5 = dice5.getValue();
+console.log(value5);
 
-console.log(hand1.displayHand());
-console.log(hand1.check3kind());
-console.log(hand1.check4kind());
-//console.log(hand1.checkOnes());
-//console.log(hand1.checkTwos());
-//console.log(hand1.handResult);
-*/
-console.log(dice1);
-//console.log(dice2);
+
+
+
+var hand1 = new Hand(value1, value2, value3, value4, value5);
+
+hand1.displayHand();
+//var hand1 = new Hand(dice1, dice2, dice3, dice4, dice5);
+
+
+
+
