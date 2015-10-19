@@ -155,6 +155,26 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 
 	}
 
+	this.checkFulHouse = function(){
+		var sort = this.handResult.sort();
+	 	console.log(sort + 'checking Full House ');
+	 	var fullHouse=0;
+	 	 for (var i=0; i<sort.length-1; i++){
+	 	 	if(sort[i]==sort[i+1]){
+	 	 		fullHouse+=1;
+	 	 	}
+	 	 }
+
+	 	 if (fullHouse==3){
+	 	 	console.log('This is a fullhouse');
+	 	 	return true;
+	 	 }else{
+	 	 	console.log('NO FULL HOUSE');
+	 	 	return false;
+	 	 }
+
+	}
+
 	this.checkBigStraight = function(){
 		var sort = this.handResult.sort();
 		console.log(sort + ' checking Big Straight ');
@@ -201,11 +221,7 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 		}else{
 			console.log('NO YAHTZEE');
 		}
-
 	}
-	
-
-
 }
 
 // Creating 5 Dice object instances
@@ -221,23 +237,16 @@ dice3.roll();
 dice4.roll();
 dice5.roll();
 
-var value1 = dice1.getValue();
-//console.log(value1);
-var value2 = dice2.getValue();
-//console.log(value2);
-var value3 = dice3.getValue();
-//console.log(value3);
-var value4 = dice4.getValue();
-//console.log(value4);
-var value5 = dice5.getValue();
-//console.log(value5);
+var value1 = dice1.getValue();//console.log(value1);
+var value2 = dice2.getValue();//console.log(value2);
+var value3 = dice3.getValue();//console.log(value3);
+var value4 = dice4.getValue();//console.log(value4);
+var value5 = dice5.getValue();//console.log(value5);
 
+var hand1 = new Hand(value1, value2, value3, value4, value5);
+//var hand1 = new Hand(2, 2, 3, 3, 3); //checking big straight
 
-
-
-//var hand1 = new Hand(value1, value2, value3, value4, value5);
-var hand1 = new Hand(2, 2, 2, 2, 2); //checking big straight
-
+//All checks
 hand1.displayHand();
 hand1.checkOnes();
 hand1.checkTwos();
@@ -249,6 +258,7 @@ hand1.check3kind();
 hand1.check4kind();
 hand1.checkBigStraight();
 hand1.checkSmallStraight();
+hand1.checkFulHouse();
 hand1.checkYahtzee();
 
 
