@@ -191,6 +191,18 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 			return false;
 		}
 	}
+
+	this.checkYahtzee = function(){
+
+		console.log(' checking Yahtzee');
+		if (this.dice1==this.dice2 && this.dice2==this.dice3 && this.dice3==this.dice4 && this.dice4==this.dice5){
+
+			console.log('YAHTZEE YESSSSSS');
+		}else{
+			console.log('NO YAHTZEE');
+		}
+
+	}
 	
 
 
@@ -223,8 +235,8 @@ var value5 = dice5.getValue();
 
 
 
-var hand1 = new Hand(value1, value2, value3, value4, value5);
-//var hand1 = new Hand(2, 3, 4, 5, 6); //checking big straight
+//var hand1 = new Hand(value1, value2, value3, value4, value5);
+var hand1 = new Hand(2, 2, 2, 2, 2); //checking big straight
 
 hand1.displayHand();
 hand1.checkOnes();
@@ -237,6 +249,7 @@ hand1.check3kind();
 hand1.check4kind();
 hand1.checkBigStraight();
 hand1.checkSmallStraight();
+hand1.checkYahtzee();
 
 
 
