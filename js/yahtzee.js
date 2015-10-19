@@ -62,7 +62,7 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 				sum +=1;
 			}
 		}
-		console.log(sum);
+		console.log('sum of ones: ' + sum);
 		return sum;
 	}
 
@@ -70,9 +70,10 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 		var sum=0;
 		for (var i=0; i<this.handResult.length; i++){
 			if(this.handResult[i]==2){
-				sum +=1;
+				sum +=2;
 			}
 		}
+		console.log('sum of twos: ' + sum);
 		return sum;
 	}
 
@@ -84,9 +85,11 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 	 for (var i=0; i<sort.length-2; i++){
 
 	 	if (sort[i] == sort[i+1] && sort[i+1]==sort[i+2]){
+	 		console.log('Three of a kind: YES' );
 	 		return true;
 	 	}
 	 }	
+	 console.log('Three of a kind: NO' );
 	return false;	
 
 	}
@@ -99,11 +102,25 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 	 for (var i=0; i<sort.length-1; i++){
 
 	 	if (sort[i] == sort[i+1] && sort[i+1]==sort[i+2] && sort[i+2]== sort[i+3]){
+	 		console.log('Four of a kind: YES' );
 	 		return true;
 	 	}
 	 }	
+	 console.log('Four of a kind: NO' );
 	return false;	
 
+	}
+
+	this.checkBigStraight = function(){
+		var sort = this.handResult.sort();
+		console.log(sort + ' checking Big Straight ');
+		if (sort[0]+1 == sort[1] && sort[1]+1==sort[2] && sort[2]+1==sort[3] && sort[3]+1 ==sort[4]){
+		console.log('Big Straight YES');
+			return true;
+		} else{
+			console.log('Big Straight N0');
+			return false;
+		}
 	}
 	
 
@@ -137,11 +154,15 @@ console.log(value5);
 
 
 
-var hand1 = new Hand(value1, value2, value3, value4, value5);
+//var hand1 = new Hand(value1, value2, value3, value4, value5);
+var hand1 = new Hand(1, 2, 3, 4, 5);
 
 hand1.displayHand();
-//var hand1 = new Hand(dice1, dice2, dice3, dice4, dice5);
-
+hand1.checkOnes();
+hand1.checkTwos();
+hand1.check3kind();
+hand1.check4kind();
+hand1.checkBigStraight();
 
 
 
