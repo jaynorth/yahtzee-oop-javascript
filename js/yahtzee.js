@@ -99,6 +99,28 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 		return sum;
 	}
 
+	this.checkFives = function(){
+		var sum=0;
+		for (var i=0; i<this.handResult.length; i++){
+			if(this.handResult[i]==5){
+				sum +=5;
+			}
+		}
+		console.log('sum of Fives: ' + sum);
+		return sum;
+	}
+
+	this.checkSixes = function(){
+		var sum=0;
+		for (var i=0; i<this.handResult.length; i++){
+			if(this.handResult[i]==6){
+				sum +=6;
+			}
+		}
+		console.log('sum of Sixes: ' + sum);
+		return sum;
+	}
+
 	this.check3kind = function(){
 		
 	 var sort = this.handResult.sort();
@@ -209,6 +231,8 @@ hand1.checkOnes();
 hand1.checkTwos();
 hand1.checkThrees();
 hand1.checkFours();
+hand1.checkFives();
+hand1.checkSixes();
 hand1.check3kind();
 hand1.check4kind();
 hand1.checkBigStraight();
