@@ -122,6 +122,31 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 			return false;
 		}
 	}
+
+	this.checkSmallStraight = function(){
+		var sort = this.handResult.sort();
+		console.log(sort + ' checking Small Straight ');
+		var straightSum=0;
+		var duplicate=0;
+
+		for (var i=0; i<sort.length-1; i++){
+
+			if (sort[i]+1 == sort[i+1]){
+				straightSum +=1;
+
+			}else if(sort[i]==sort[i+1]){
+				duplicate +=1;
+			}								
+		}
+
+		if (straightSum >=3 && duplicate<2){
+			console.log('Small Straight YES');
+			return true;
+		}else{
+			console.log('Small Straight NO');
+			return false;
+		}
+	}
 	
 
 
@@ -155,7 +180,7 @@ console.log(value5);
 
 
 //var hand1 = new Hand(value1, value2, value3, value4, value5);
-var hand1 = new Hand(1, 2, 3, 4, 5);
+var hand1 = new Hand(3, 4, 5, 6, 5); //checking big straight
 
 hand1.displayHand();
 hand1.checkOnes();
@@ -163,6 +188,7 @@ hand1.checkTwos();
 hand1.check3kind();
 hand1.check4kind();
 hand1.checkBigStraight();
+hand1.checkSmallStraight();
 
 
 
