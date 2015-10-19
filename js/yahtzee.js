@@ -88,6 +88,17 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 		return sum;
 	}
 
+	this.checkFours = function(){
+		var sum=0;
+		for (var i=0; i<this.handResult.length; i++){
+			if(this.handResult[i]==4){
+				sum +=4;
+			}
+		}
+		console.log('sum of Fours: ' + sum);
+		return sum;
+	}
+
 	this.check3kind = function(){
 		
 	 var sort = this.handResult.sort();
@@ -197,6 +208,7 @@ hand1.displayHand();
 hand1.checkOnes();
 hand1.checkTwos();
 hand1.checkThrees();
+hand1.checkFours();
 hand1.check3kind();
 hand1.check4kind();
 hand1.checkBigStraight();
