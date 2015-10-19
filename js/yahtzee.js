@@ -77,6 +77,17 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 		return sum;
 	}
 
+	this.checkThrees = function(){
+		var sum=0;
+		for (var i=0; i<this.handResult.length; i++){
+			if(this.handResult[i]==3){
+				sum +=3;
+			}
+		}
+		console.log('sum of threes: ' + sum);
+		return sum;
+	}
+
 	this.check3kind = function(){
 		
 	 var sort = this.handResult.sort();
@@ -166,25 +177,26 @@ dice4.roll();
 dice5.roll();
 
 var value1 = dice1.getValue();
-console.log(value1);
+//console.log(value1);
 var value2 = dice2.getValue();
-console.log(value2);
+//console.log(value2);
 var value3 = dice3.getValue();
-console.log(value3);
+//console.log(value3);
 var value4 = dice4.getValue();
-console.log(value4);
+//console.log(value4);
 var value5 = dice5.getValue();
-console.log(value5);
+//console.log(value5);
 
 
 
 
-//var hand1 = new Hand(value1, value2, value3, value4, value5);
-var hand1 = new Hand(3, 4, 5, 6, 5); //checking big straight
+var hand1 = new Hand(value1, value2, value3, value4, value5);
+//var hand1 = new Hand(2, 3, 4, 5, 6); //checking big straight
 
 hand1.displayHand();
 hand1.checkOnes();
 hand1.checkTwos();
+hand1.checkThrees();
 hand1.check3kind();
 hand1.check4kind();
 hand1.checkBigStraight();
