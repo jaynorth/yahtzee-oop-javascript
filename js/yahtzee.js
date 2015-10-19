@@ -222,6 +222,14 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 			console.log('NO YAHTZEE');
 		}
 	}
+
+	this.checkChance = function(){
+		var sort = this.handResult.sort();
+		var chance = sort[0]+sort[1]+sort[2]+sort[3]+sort[4];
+		console.log('chance sum is : ' + chance);
+		return chance;
+
+	}
 }
 
 // Creating 5 Dice object instances
@@ -260,6 +268,7 @@ hand1.checkBigStraight();
 hand1.checkSmallStraight();
 hand1.checkFulHouse();
 hand1.checkYahtzee();
+hand1.checkChance();
 
 
 
