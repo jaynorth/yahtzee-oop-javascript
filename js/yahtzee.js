@@ -46,9 +46,16 @@ function Hand(dice1, dice2, dice3, dice4, dice5){
 	this.dice4 = dice4;
 	this.dice5 = dice5;
 	
-	this.handNumber;//out of 3 throws per turn
-	this.totalGameTurn;//out of the 13 turn
+	this.handNumber=0;//out of 3 throws per turn
+	this.totalGameTurn=0;//out of the 13 turn
 	this.handResult = [dice1, dice2, dice3, dice4, dice5];
+
+	this.displayHandNumber = function (){
+		var message='This is Roll Number ' +this.handNumber ;
+		//document.write(message);
+		document.getElementById('content').innerHTML=message;
+
+	}
 
 	this.displayHand = function(){
 		console.log(this.handResult);
@@ -239,22 +246,15 @@ var dice3 = new Dice();
 var dice4 = new Dice();
 var dice5 = new Dice();
 
-dice1.roll();
-dice2.roll();
-dice3.roll();
-dice4.roll();
-dice5.roll();
 
-var value1 = dice1.getValue();//console.log(value1);
-var value2 = dice2.getValue();//console.log(value2);
-var value3 = dice3.getValue();//console.log(value3);
-var value4 = dice4.getValue();//console.log(value4);
-var value5 = dice5.getValue();//console.log(value5);
 
-var hand1 = new Hand(value1, value2, value3, value4, value5);
+
+
+
 //var hand1 = new Hand(2, 2, 3, 3, 3); //checking big straight
 
 //All checks
+/*
 hand1.displayHand();
 hand1.checkOnes();
 hand1.checkTwos();
@@ -269,6 +269,26 @@ hand1.checkSmallStraight();
 hand1.checkFulHouse();
 hand1.checkYahtzee();
 hand1.checkChance();
+*/
+var hand1 = new Hand(0, 0, 0, 0, 0);
+function roll(){
 
+	dice1.roll();
+	dice2.roll();
+	dice3.roll();
+	dice4.roll();
+	dice5.roll();
+	var value1 = dice1.getValue();//console.log(value1);
+	var value2 = dice2.getValue();//console.log(value2);
+	var value3 = dice3.getValue();//console.log(value3);
+	var value4 = dice4.getValue();//console.log(value4);
+	var value5 = dice5.getValue();//console.log(value5);
+	hand1.handResult=[value1, value2, value3, value4, value5];
+	hand1.handNumber +=1;
+	hand1.displayHand();
+	//console.log('hand number : ' + hand1.handNumber);
+	hand1.displayHandNumber();
 
+}
 
+//roll();
